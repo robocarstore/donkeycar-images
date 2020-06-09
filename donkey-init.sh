@@ -15,7 +15,7 @@ if [ "$DONKEY_RESET" = true ] ; then
     sed -i  "s/127.0.1.1.*/127.0.1.1\tdonkey-$HWADDR/g" /etc/hosts
     echo "donkey-$HWADDR" > /etc/hostname
     
-    sed -i  "s/DONKEY_RESET.*/DONKEY_RESET=False/g" $CONFIG_FILE
+    sed -i  "s/DONKEY_RESET.*/DONKEY_RESET=false/g" $CONFIG_FILE
     
     cp ./resources/wpa_supplicant.empty.conf /boot/wpa_supplicant.conf
     
