@@ -20,7 +20,7 @@ This image is installed with Raspap. To login the Raspap portal, visit
 
 A hotspot is automatically available if there is no active wireless connection.
 The hotspot name is determined by ```/etc/hostapd/hostapd.conf```, which is
-updated by a script located in ```/usr/local/sbin/update_ssid.sh``` upon
+updated by a script located in ```/usr/local/sbin/donkey-init.sh``` upon
 first boot.
 
 This script will use the prefix ```donkey-``` and the last 6 character of the
