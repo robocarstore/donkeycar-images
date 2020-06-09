@@ -11,6 +11,11 @@
 - username: pi
 - password: raspberry
 
+# How to install
+```
+sudo ln -s donkey-init.service /etc/systemd/system/donkey-init.service
+```
+
 # Wifi Hotspot
 This image is installed with Raspap. To login the Raspap portal, visit
 ```http://hostname/``` with the following credentials:
