@@ -1,0 +1,13 @@
+[Unit]
+Description=Donkey Init
+After=network.target
+
+[Service]
+ExecStart=/bin/bash donkey-init.sh
+WorkingDirectory=/opt/donkeycar-images
+StandardOutput=inherit
+StandardError=inherit
+User=root
+
+[Install]
+WantedBy=multi-user.target
