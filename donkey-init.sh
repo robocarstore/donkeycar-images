@@ -19,6 +19,8 @@ if [ "$DONKEY_RESET" = true ] ; then
     
     cp ./resources/wpa_supplicant.empty.conf /boot/wpa_supplicant.conf
     
+    sudo raspi-config --expand-rootfs    
+    
     reboot
 fi
 
