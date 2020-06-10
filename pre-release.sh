@@ -43,4 +43,4 @@ $HOME/env_dc/bin/python $CONSOLE_DIR/manage.py migrate
 
 sed -i  "s/DONKEY_RESET.*/DONKEY_RESET=true/g" $CONFIG_FILE
 
-echo "Success. You can reboot now"
+echo "Success. You can poweroff and make an image."
