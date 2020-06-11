@@ -39,6 +39,9 @@ donkey createcar --path $HOME/mycar
 # Update console
 git pull $CONSOLE_DIR
 rm $CONSOLE_DIR/db.sqlite3
+rm $CONSOLE_DIR/gunicorn.log
+rm $CONSOLE_DIR/gunicorn.access.log
+
 $HOME/env_dc/bin/python $CONSOLE_DIR/manage.py migrate
 
 sed -i  "s/DONKEY_RESET.*/DONKEY_RESET=true/g" $CONFIG_FILE
