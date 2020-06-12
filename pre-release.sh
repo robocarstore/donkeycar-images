@@ -37,11 +37,12 @@ pip install -e $HOME/donkeycar[mm1]
 donkey createcar --path $HOME/mycar
 
 # Update console
-git pull $CONSOLE_DIR
+cd $CONSOLE_DIR
+git pull
 rm $CONSOLE_DIR/db.sqlite3
 rm $CONSOLE_DIR/gunicorn.log
 rm $CONSOLE_DIR/gunicorn.access.log
-cp $CONSOLE_DIR/dkconsole/vehicle/myconfig.py $HOME/mycar
+cp $CONSOLE_DIR/dkconsole/vehicle/myconfig.py $HOME/mycar/myconfig.py
 
 $HOME/env_dc/bin/python $CONSOLE_DIR/manage.py migrate
 
