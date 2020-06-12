@@ -14,13 +14,15 @@ if [ "$DONKEY_RESET" = true ] ; then
     sed -i "s/ssid=donkey.*/ssid=donkey-$HWADDR/g" $HOSTAPD_CONF
     sed -i  "s/127.0.1.1.*/127.0.1.1\tdonkey-$HWADDR/g" /etc/hosts
     echo "donkey-$HWADDR" > /etc/hostname
-    
+
     sed -i  "s/DONKEY_RESET.*/DONKEY_RESET=false/g" $CONFIG_FILE
-    
+
     cp ./resources/wpa_supplicant.empty.conf /boot/wpa_supplicant.conf
-    
-    sudo raspi-config --expand-rootfs    
-    
+
+    sudo raspi-config --expand-rootfs
+
+    logger "donkey-init rebooting"
+
     reboot
 fi
 
@@ -28,7 +30,6 @@ if [ "$DEV_MODE" = true ] ; then
     cat resources/pub > /home/pi/.ssh/authorized_keys
     cp ./resources/wpa_supplicant.test.conf /etc/wpa_supplicant/wpa_supplicant.conf
 fi
- 
 
 logger "donkey-init completed"
 

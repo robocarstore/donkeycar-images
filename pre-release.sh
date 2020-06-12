@@ -20,7 +20,7 @@ done
 
 if [ "$DELETE_KEY" = true ] ; then
     echo "deleting keys"
-    # rm $HOME/.ssh/authorized_keys
+    rm $HOME/.ssh/authorized_keys
 fi
 
 # Delete mycar and donkeycar
@@ -41,6 +41,7 @@ git pull $CONSOLE_DIR
 rm $CONSOLE_DIR/db.sqlite3
 rm $CONSOLE_DIR/gunicorn.log
 rm $CONSOLE_DIR/gunicorn.access.log
+cp $CONSOLE_DIR/dkconsole/vehicle/myconfig.py $HOME/mycar
 
 $HOME/env_dc/bin/python $CONSOLE_DIR/manage.py migrate
 
