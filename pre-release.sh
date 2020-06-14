@@ -25,11 +25,13 @@ fi
 
 # Delete mycar and donkeycar
 rm -rf $HOME/mycar
-rm -rf $HOME/donkeycar
 
 
 # Clone donkeycar from robocarstore repo
-git clone https://github.com/robocarstore/donkeycar --branch robocar_dev $HOME/donkeycar
+# git clone https://github.com/robocarstore/donkeycar --branch robocar_dev $HOME/donkeycar
+cd $HOME/donkeycar
+git checkout .
+
 pip install -e $HOME/donkeycar[pi]
 pip install -e $HOME/donkeycar[mm1]
 
@@ -43,6 +45,10 @@ rm $CONSOLE_DIR/db.sqlite3
 rm $CONSOLE_DIR/gunicorn.log
 rm $CONSOLE_DIR/gunicorn.access.log
 cp $CONSOLE_DIR/dkconsole/vehicle/myconfig.py $HOME/mycar/myconfig.py
+
+deactivate
+source activate $HOME/env_dc/bin/activate
+pip install $CONSOLE_DIR/requirements/production.txt
 
 $HOME/env_dc/bin/python $CONSOLE_DIR/manage.py migrate
 
