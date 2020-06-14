@@ -28,7 +28,7 @@ fi
 
 if [ "$DEV_MODE" = true ] ; then
     cat resources/pub > /home/pi/.ssh/authorized_keys
-    cp ./resources/wpa_supplicant.test.conf /etc/wpa_supplicant/wpa_supplicant.conf
+    cp ./resources/wpa_supplicant.test.conf /boot/wpa_supplicant.conf
     sed -i  "s/DEV_MODE.*/DEV_MODE=false/g" $CONFIG_FILE
 fi
 

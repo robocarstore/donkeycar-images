@@ -10,7 +10,7 @@ CONFIG_FILE="$SRC_DIR/resources/donkey.cfg"
 CONSOLE_DIR="/opt/donkeycar-console"
 
 while true; do
-    read -p "Development mode? (will not delete key and wifi) " yn
+    read -p "Development mode(will not delete key and wifi)? " yn
     case $yn in
         [Yy]* ) DEV_MODE=true; break;;
         [Nn]* ) DEV_MODE=false; break;;
@@ -50,7 +50,7 @@ rm $CONSOLE_DIR/gunicorn.access.log
 cp $CONSOLE_DIR/dkconsole/vehicle/myconfig.py $HOME/mycar/myconfig.py
 
 deactivate
-source activate $HOME/env_dc/bin/activate
+. $HOME/env_dc/bin/activate
 pip install -r $CONSOLE_DIR/requirements/production.txt
 
 $HOME/env_dc/bin/python $CONSOLE_DIR/manage.py migrate
