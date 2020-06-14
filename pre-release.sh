@@ -10,15 +10,17 @@ CONFIG_FILE="$SRC_DIR/resources/donkey.cfg"
 CONSOLE_DIR="/opt/donkeycar-console"
 
 while true; do
-    read -p "Do you want to delete authorized_key [y/n]? " yn
+    read -p "Development mode? (will not delete key and wifi) " yn
     case $yn in
-        [Yy]* ) DELETE_KEY=true; break;;
-        [Nn]* ) DELETE_KEY=false; break;;
+        [Yy]* ) DEV_MODE=true; break;;
+        [Nn]* ) DEV_MODE=false; break;;
         * ) echo "Please answer yes or no.";;
     esac
 done
 
-if [ "$DELETE_KEY" = true ] ; then
+if [ "$DEV_MODE" = true ] ; then
+    sed -i  "s/DEV_MODE.*/DEV_MODE=true/g" $CONFIG_FILE
+else
     echo "deleting keys"
     rm $HOME/.ssh/authorized_keys
 fi
