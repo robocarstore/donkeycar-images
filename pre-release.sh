@@ -42,6 +42,7 @@ donkey createcar --path $HOME/mycar
 
 # Update console
 cd $CONSOLE_DIR
+git checkout .
 git pull
 rm $CONSOLE_DIR/db.sqlite3
 rm $CONSOLE_DIR/gunicorn.log
@@ -50,7 +51,7 @@ cp $CONSOLE_DIR/dkconsole/vehicle/myconfig.py $HOME/mycar/myconfig.py
 
 deactivate
 source activate $HOME/env_dc/bin/activate
-pip install $CONSOLE_DIR/requirements/production.txt
+pip install -r $CONSOLE_DIR/requirements/production.txt
 
 $HOME/env_dc/bin/python $CONSOLE_DIR/manage.py migrate
 
