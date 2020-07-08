@@ -1,22 +1,38 @@
-# Features
+# Warning
+### Use this image at your own risk. This image is designed for the ease of use and therefore sacrifice quite some security concern. For example, it has an unprotected jupyter lab instance running with shell access. In addition, the donkeycar console installed accept any web or mobile client to connect without a password. This may be enhanced in the future but it is what it is now.
 
-- Supports RPI4B, Jetson Nano
+## Features
+
+- Supports RPI4B
 - Supports Robohat MM1
 - Built-in wifi hotspot
 - Pre-installed librealsense and pyrealsense2
-- Latest donkey software (v311)
+- Latest donkey software (v312)
 
 
-# SSH Login
+## SSH Login
 - username: pi
 - password: raspberry
 
-# How to install
+## How to install
 ```
+sudo git clone https://github.com/sctse999/donkeycar-images /opt/donkeycar-images
 sudo ln -s donkey-init.service /etc/systemd/system/donkey-init.service
+
 ```
 
-# Wifi Hotspot
+## Add Cron Job
+
+Add the following lines after you execute ```sudo crontab -e```
+
+```
+* * * * * /opt/donkeycar-images/switch-network.sh
+* * * * * /home/pi/env_dc/bin/python /opt/donkeycar-images/low-battery-auto-shutdown.py 2>&1 | /usr/bin/logger -t low-battery-protector
+
+```
+
+
+## Wifi Hotspot
 This image is installed with Raspap. To login the Raspap portal, visit
 ```http://hostname/``` with the following credentials:
 
@@ -36,15 +52,49 @@ The script ```switch-network.sh``` is a cron job run by root. It turns off the
 hotspot when there is an active wireless connection. Similiarly, it turns on the
 hotspot when there is no wireless connection.
 
-# Downloads
+
+# Jupyter Lab
+- No password
+- Port: 8888
+
+## Installation step
+```
+pip install jupyterlab
+
+sudo systemctl enable jupyter-lab.service
+```
+
+## Startup Config
+/etc/systemd/system/jupyter-lab.service
+```
+[Unit]
+Description = JupyterLab
+
+[Service]
+PIDFile = /run/jupyter.pid
+ExecStart = /home/pi/env/bin/jupyter-lab
+User = pi
+Group = pi
+WorkingDirectory = /home/pi
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy = multi-user.target
+```
+
+
 
 
 # Initial Setup
+- Change hostname
+- Change SSH password
+- Change RASPAP username and password
 
-## Change hostname
-## Change SSH password
-## Change RASPAP username and password
-
+# Reset script
+```
+/opt/donkey-images/pre-release.sh
+```
 
 
 # Changelog
@@ -78,4 +128,10 @@ hotspot when there is no wireless connection.
 apt-get install ffmpeg
 pip install git+https://github.com/sctse999/keras-vis.git
 ```
-- 
+
+### v20200707
+- Installed jupyter lab as a service
+
+### v20200708
+- Fine tune myconfig.py value
+- Install Google Coral Edgetpu library

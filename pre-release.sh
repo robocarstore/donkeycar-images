@@ -47,7 +47,7 @@ git pull
 rm $CONSOLE_DIR/db.sqlite3
 rm $CONSOLE_DIR/gunicorn.log
 rm $CONSOLE_DIR/gunicorn.access.log
-cp $CONSOLE_DIR/dkconsole/vehicle/myconfig.py $HOME/mycar/myconfig.py
+cp $SRC_DIR/resources/myconfig.py $HOME/mycar/myconfig.py
 
 deactivate
 . $HOME/env_dc/bin/activate
