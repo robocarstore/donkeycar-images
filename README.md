@@ -8,11 +8,18 @@
 - Built-in wifi hotspot
 - Pre-installed librealsense and pyrealsense2
 - Latest donkey software (v312)
+- Jupyter Lab
 
 
-## SSH Login
+## Access
+### SSH Login
 - username: pi
 - password: raspberry
+
+### Jupyter Lab
+```
+http://donkey-xxxxxx.local:8888
+```
 
 ## How to install
 ```
@@ -21,7 +28,7 @@ sudo ln -s donkey-init.service /etc/systemd/system/donkey-init.service
 
 ```
 
-## Add Cron Job
+### Add Cron Job
 
 Add the following lines after you execute ```sudo crontab -e```
 
@@ -53,18 +60,16 @@ hotspot when there is an active wireless connection. Similiarly, it turns on the
 hotspot when there is no wireless connection.
 
 
-# Jupyter Lab
-- No password
-- Port: 8888
+## Jupyter Lab
 
-## Installation step
+### Installation step
 ```
 pip install jupyterlab
 
 sudo systemctl enable jupyter-lab.service
 ```
 
-## Startup Config
+### Startup Config
 /etc/systemd/system/jupyter-lab.service
 ```
 [Unit]
@@ -84,12 +89,6 @@ WantedBy = multi-user.target
 ```
 
 
-
-
-# Initial Setup
-- Change hostname
-- Change SSH password
-- Change RASPAP username and password
 
 # Reset script
 ```
