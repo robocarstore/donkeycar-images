@@ -95,6 +95,9 @@ WantedBy = multi-user.target
 /opt/donkey-images/pre-release.sh
 ```
 
+# Commercial Use
+If you intend to use this project for making money, you must obtain our consent before you do so. Contact us at sales@robocarstore.com
+
 
 # Changelog
 ## RPI4B
