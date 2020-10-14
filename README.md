@@ -10,7 +10,6 @@
 - Latest donkey software (v312)
 - Jupyter Lab
 
-
 ## Download
 | Date  | Platform | Download |
 | ------------- | ------------- | -------|
@@ -94,9 +93,18 @@ RestartSec=10
 WantedBy = multi-user.target
 ```
 
+# Others
+## Software Info
+### Donkey Car
+origin: https://github.com/robocarstore/donkeycar
+branch: robocar_dev
 
 
-# Reset script
+### Donkey Car Console
+origin: https://github.com/robocarstore/donkeycar-console
+branch: dev
+
+### Reset script
 ```
 /opt/donkey-images/pre-release.sh
 ```
@@ -107,6 +115,39 @@ If you intend to use this project for making money, you must obtain our consent 
 
 # Changelog
 ## RPI4B
+### v20201014
+- Update donkey car to v3.1.5
+- Update to latest donkeycar-console 
+
+
+### v20200708
+- Fine tune myconfig.py value
+- Install Google Coral Edgetpu library
+
+### v20200707
+- Installed jupyter lab as a service
+
+
+### v20200526
+- Installed ffmpeg and keras-vis
+``` 
+apt-get install ffmpeg
+pip install git+https://github.com/sctse999/keras-vis.git
+
+```
+
+### v20200421
+- Installed donkey console v2 under ~/
+- Installed donkey console as systemd service
+
+### v20200324
+- Rename init script to donkey-init.sh
+- Added ~/donkey.cfg for config reset
+- donkey-init.sh will rename hostname when DONKEY_RESET=True in donkey.cfg
+- donkey-init.sh will reset wpa_supplicant.conf
+- Change raspap country to US and use 80211.ac 5Ghz
+- Install switch-network.sh to crontab
+
 ### v20200310
 - Performed OS upgrade
 - Removed vim
@@ -117,29 +158,6 @@ If you intend to use this project for making money, you must obtain our consent 
 - Adopted https://github.com/amix/vimrc
 
 
-### v20200324
-- Rename init script to donkey-init.sh
-- Added ~/donkey.cfg for config reset
-- donkey-init.sh will rename hostname when DONKEY_RESET=True in donkey.cfg
-- donkey-init.sh will reset wpa_supplicant.conf
-- Change raspap country to US and use 80211.ac 5Ghz
-- Install switch-network.sh to crontab
-
-### v20200421
-- Installed donkey console v2 under ~/
-- Installed donkey console as systemd service
 
 
-### v20200526
-- Installed ffmpeg and keras-vis
-``` 
-apt-get install ffmpeg
-pip install git+https://github.com/sctse999/keras-vis.git
-```
 
-### v20200707
-- Installed jupyter lab as a service
-
-### v20200708
-- Fine tune myconfig.py value
-- Install Google Coral Edgetpu library
