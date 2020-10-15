@@ -5,6 +5,10 @@ if [ ! -d "/home/pi" ] ; then
     exit 0
 fi
 
+# Timestamp this image
+today=$(date +"%Y%m%d")
+sudo sed -i "s/Version: .*/Version: $today/g" /etc/motd
+
 SRC_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 CONFIG_FILE="$SRC_DIR/resources/donkey.cfg"
 CONSOLE_DIR="/opt/donkeycar-console"
@@ -33,6 +37,7 @@ rm -rf $HOME/mycar
 # git clone https://github.com/robocarstore/donkeycar --branch robocar_dev $HOME/donkeycar
 cd $HOME/donkeycar
 git checkout .
+git pull
 
 pip install -e $HOME/donkeycar[pi]
 pip install -e $HOME/donkeycar[mm1]

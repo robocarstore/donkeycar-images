@@ -13,6 +13,7 @@
 ## Download
 | Date  | Platform | Download |
 | ------------- | ------------- | -------|
+| 2020-10-14 | Raspberry Pi 4B / Buster | [Download](https://www.dropbox.com/s/1v3gx2atjbg96fs/pi4_v20201014.zip?dl=0)|
 | 2020-07-18 | Raspberry Pi 4B / Buster | [Download](https://www.dropbox.com/s/tl9795vp2ywzonr/pi4_v20200718.zip?dl=0)|
 
 
