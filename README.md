@@ -116,7 +116,7 @@ If you intend to use this project for making money, you must obtain our consent 
 
 # Changelog
 ## RPI4B
-### v20201014
+### v20201014 / v1.0
 - Update donkey car to v3.1.5
 - Update to latest donkeycar-console 
 
