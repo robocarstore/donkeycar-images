@@ -1,0 +1,24 @@
+[Unit]
+Description = DKConsole v2
+After = network.target
+
+[Service]
+EnvironmentFile= /opt/donkeycar-console/gunicorn.env
+PermissionsStartOnly = true
+PIDFile = /run/dkconsole/dkconsole.pid
+User = pi
+Group = pi
+WorkingDirectory = /opt/donkeycar-console
+ExecStartPre = /bin/mkdir /run/dkconsole
+ExecStartPre = /bin/chown -R pi:pi /run/dkconsole
+ExecStartPre = -/usr/bin/git pull
+ExecStartPre = /home/pi/env/bin/python manage.py migrate
+
+ExecStart = /home/pi/env/bin/gunicorn dkconsole.wsgi -b 0.0.0.0:8000 --pid /run/dkconsole/dkconsole.pid -c gunicorn.config.py
+ExecReload = /bin/kill -s HUP $MAINPID
+ExecStop = /bin/kill -s TERM $MAINPID
+ExecStopPost = /bin/rm -rf /run/dkconsole
+SyslogIdentifier= dkconsole
+
+[Install]
+WantedBy = multi-user.target

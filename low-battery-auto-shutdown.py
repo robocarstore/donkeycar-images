@@ -10,7 +10,7 @@ try:
     current_voltage = ina219.bus_voltage
     print(f"Current voltage = {current_voltage}")
 
-    if current_voltage < 7:
+    if 5.5 < current_voltage < 7:
         print("current voltage under 7. Shutting down to protect the pi")
         subprocess.check_output(['sudo', 'shutdown', '-h', 'now'])
 except Exception as e:
