@@ -38,7 +38,8 @@ rm -rf $HOME/env_dc
 # git clone https://github.com/robocarstore/donkeycar --branch robocar_dev $HOME/donkeycar
 cd $HOME/donkeycar
 git checkout .
-git checkout robocarstore_v3
+
+git checkout robocar_dev
 git pull
 
 pip install -e $HOME/donkeycar[pi]
