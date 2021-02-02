@@ -49,21 +49,30 @@ cd $HOME
 # Clone donkeycar from robocarstore repo
 # git clone https://github.com/robocarstore/donkeycar --branch robocar_dev $HOME/donkeycar
 cd $HOME/donkeycar
-git remote set-url origin https://github.com/autorope/donkeycar
+git remote set-url origin https://github.com/robocarstore/donkeycar
 git checkout .
-git checkout dev
+git checkout robocarstore_v4
 git pull
 
 pip install -e $HOME/donkeycar[pi]
 pip install -e $HOME/donkeycar[mm1]
 
+# install TF2.2
+TF_BIN_NAME=tensorflow-2.2.0-cp37-cp37m-linux_armv7l
+SCRIPT_NAME=${TF_BIN_NAME}_download.sh
 
-wget "https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/master/tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh"
+# wget "https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/master/tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh"
+wget "https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/master/$SCRIPT_NAME"
 
-chmod u+x tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh
-./tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh
-pip install tensorflow-2.3.1-cp37-none-linux_armv7l.whl
-rm tensorflow-2.3.1-cp37-none-linux_armv7l.whl
+chmod u+x $SCRIPT_NAME
+./$SCRIPT_NAME
+pip install ${TF_BIN_NAME}.whl
+rm ${TF_BIN_NAME}.whl
+
+# chmod u+x tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh
+# ./tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh
+# pip install tensorflow-2.3.1-cp37-none-linux_armv7l.whl
+# rm tensorflow-2.3.1-cp37-none-linux_armv7l.whl
 
 
 # Rebuild my car
@@ -84,8 +93,6 @@ cp $SRC_DIR/resources/myconfig.py $HOME/mycar/myconfig.py
 pip install -r $CONSOLE_DIR/requirements/production.txt
 
 python $CONSOLE_DIR/manage.py migrate
-
-sudo cp $SRC_DIR/resources/pi4_v4/gunicorn.service /etc/systemd/system/gunicorn.service
 
 sed -i  "s/DONKEY_RESET.*/DONKEY_RESET=true/g" $CONFIG_FILE
 

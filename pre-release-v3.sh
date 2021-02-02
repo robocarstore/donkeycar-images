@@ -57,8 +57,6 @@ rm $CONSOLE_DIR/gunicorn.log
 rm $CONSOLE_DIR/gunicorn.access.log
 cp $SRC_DIR/resources/myconfig.py $HOME/mycar/myconfig.py
 
-deactivate
-. $HOME/env/bin/activate
 pip install -r $CONSOLE_DIR/requirements/production.txt
 
 $HOME/env/bin/python $CONSOLE_DIR/manage.py migrate
