@@ -80,7 +80,7 @@ donkey createcar --path $HOME/mycar --template complete
 
 # Update console
 cd $CONSOLE_DIR
-git remote set-url origin https://github.com/sctse999/donkeycar-console
+git remote set-url origin https://github.com/robocarstore/donkeycar-console
 git checkout .
 git pull
 rm -rf $CONSOLE_DIR/dkconsole/mycar_test
