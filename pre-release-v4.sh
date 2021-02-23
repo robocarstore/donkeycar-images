@@ -51,11 +51,10 @@ cd $HOME
 cd $HOME/donkeycar
 git remote set-url origin https://github.com/robocarstore/donkeycar
 git checkout .
+git fetch
 git checkout robocarstore_v4
 git pull
 
-pip install -e $HOME/donkeycar[pi]
-pip install -e $HOME/donkeycar[mm1]
 
 # install TF2.2
 TF_BIN_NAME=tensorflow-2.2.0-cp37-cp37m-linux_armv7l
@@ -69,6 +68,11 @@ chmod u+x $SCRIPT_NAME
 pip install ${TF_BIN_NAME}.whl
 rm ${TF_BIN_NAME}.whl
 
+
+pip install -e $HOME/donkeycar[pi]
+pip install -e $HOME/donkeycar[mm1]
+
+
 # chmod u+x tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh
 # ./tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh
 # pip install tensorflow-2.3.1-cp37-none-linux_armv7l.whl
@@ -81,6 +85,10 @@ donkey createcar --path $HOME/mycar --template complete
 # Update console
 cd $CONSOLE_DIR
 git remote set-url origin https://github.com/robocarstore/donkeycar-console
+
+#  git config --global filter.lfs.smudge "git-lfs smudge --skip -- %f"
+#  git config --global filter.lfs.process "git-lfs filter-process --skip"
+
 git checkout .
 git pull
 rm -rf $CONSOLE_DIR/dkconsole/mycar_test
