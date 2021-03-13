@@ -103,6 +103,17 @@ RestartSec=10
 WantedBy = multi-user.target
 ```
 
+### Reset script
+
+The reset script will reset the current system to a clean state.
+
+```
+# Run either one of the following command
+
+/opt/donkey-images/pre-release-v3.sh
+/opt/donkey-images/pre-release-v4.sh
+```
+
 # Others
 
 ## Software Info
@@ -111,19 +122,15 @@ WantedBy = multi-user.target
 
 origin: https://github.com/robocarstore/donkeycar
 
-v4 branch: robocarstore_v4
-v3 branch: robocar_dev
+v4 branch: `robocarstore_v4`
+
+v3 branch: `robocar_dev`
 
 ### Donkey Car Console
 
-origin: https://github.com/robocarstore/donkeycar-console
-branch: dev
+origin: `https://github.com/robocarstore/donkeycar-console`
 
-### Reset script
-
-```
-/opt/donkey-images/pre-release.sh
-```
+branch: `dev`
 
 # Commercial Use
 

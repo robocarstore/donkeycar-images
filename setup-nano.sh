@@ -52,6 +52,7 @@ donkey createcar --path $HOME/mycar
 
 # Setup hotspot
 sudo cp $RESOURCE_DIR/hotspot /etc/NetworkManager/system-connections
+sudo chmod 600 /etc/NetworkManager/system-connections/hotspot
 
 # Update console
 # cd $CONSOLE_DIR
@@ -70,7 +71,8 @@ cp $RESOURCE_DIR/myconfig.py $HOME/mycar/myconfig.py
 
 # sed -i  "s/DONKEY_RESET.*/DONKEY_RESET=true/g" $CONFIG_FILE
 
-
 sudo $RESOURCE_DIR/install_nvresize_service.sh
+
+cp $RESOURCE_DIR/connect_wifi.sh $HOME
 
 echo "Success. You can poweroff and make an image."

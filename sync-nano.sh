@@ -1,8 +1,9 @@
 #!/bin/bash
 HOSTNAME=nano.local
+TARGET_PATH=/opt/donkeycar-images
 
 function sync() {
-    rsync -avzp --exclude dist ~/projects/donkeycar-images/ nano@$HOSTNAME:~/donkeycar-images --delete
+    rsync -avzp --exclude dist ~/projects/donkeycar-images/ nano@$HOSTNAME:$TARGET_PATH --delete
 }
 
 sync

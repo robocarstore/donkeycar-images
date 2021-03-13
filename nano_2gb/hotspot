@@ -4,11 +4,13 @@ uuid=f66f9675-ddbf-474e-9768-1b7c19f23f10
 type=wifi
 interface-name=wlan0
 permissions=
+timestamp=1609230333
 
 [wifi]
 band=bg
 mac-address-blacklist=
 mode=ap
+seen-bssids=00:E0:4C:49:D9:CA;
 ssid=nanowifi
 
 [wifi-security]
@@ -16,9 +18,9 @@ key-mgmt=wpa-psk
 psk=asdfasdf
 
 [ipv4]
+address1=192.168.10.1/24,192.168.10.1
 dns-search=
 method=shared
-address1=192.168.125.1/24,192.168.125.1
 
 [ipv6]
 addr-gen-mode=stable-privacy
