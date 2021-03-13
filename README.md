@@ -47,7 +47,7 @@ Add the following lines after you execute `sudo crontab -e`
 
 ```
 * * * * * /opt/donkeycar-images/switch-network.sh
-* * * * * /home/pi/env_dc/bin/python /opt/donkeycar-images/low-battery-auto-shutdown.py 2>&1 | /usr/bin/logger -t low-battery-protector
+* * * * * /home/pi/env/bin/python /opt/donkeycar-images/low-battery-auto-shutdown.py 2>&1 | /usr/bin/logger -t low-battery-protector
 
 ```
 
@@ -132,6 +132,12 @@ If you intend to use this project for making money, you must obtain our consent 
 # Changelog
 
 ## RPI4B
+
+### v20210204
+
+- Update donkey car to v4.2.0
+- Compatible with Donkey Car Controller 1.3.2
+- Single python venv at /home/pi/env. Both donkey console and donkey car software use this venv.
 
 ### v20201014 / v1.0
 
