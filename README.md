@@ -59,7 +59,7 @@ This image is installed with Raspap. To login the Raspap portal, visit
 - username: admin
 - password: secret
 
-A hotspot is automatically available if there is no active wireless connection.
+Be default, a 5ghz hotspot is automatically available if there is no active wireless connection.
 The hotspot name is determined by `/etc/hostapd/hostapd.conf`, which is
 updated by a script located in `/usr/local/sbin/donkey-init.sh` upon
 first boot.
@@ -71,6 +71,18 @@ something else by editing the file or using the Raspap portal.
 The script `switch-network.sh` is a cron job run by root. It turns off the
 hotspot when there is an active wireless connection. Similiarly, it turns on the
 hotspot when there is no wireless connection.
+
+### Hotspot issue
+
+- If you are experiencing unstable connection to the hotspot, modify the `country_code` under `/etc/hostapd/hostapd.conf`
+- If you want to use 2.4Ghz instead of 5Ghz hotspot, run the following
+
+```
+cd /opt/donkeycar-images
+sudo ./switch_to_24ghz_hotspot.sh
+```
+
+Similarly, there is another script called `switch_to_5ghz_hotspot.sh` that you can use to switch to 5ghz network.
 
 ## Jupyter Lab
 
@@ -139,6 +151,10 @@ If you intend to use this project for making money, you must obtain our consent 
 # Changelog
 
 ## RPI4B
+
+### v20210501
+
+- Fix Jupyter Lab missing installation
 
 ### v20210204
 
