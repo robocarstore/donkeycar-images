@@ -8,6 +8,16 @@ HOSTAPD_CONF="/etc/hostapd/hostapd.conf"
 echo $CONFIG_FILE
 . $CONFIG_FILE
 
+if [ "$HOTSPOT_BAND" = "2.4" ] ; then
+    logger "Hotspot using 2.4ghz band"
+    sudo ln -sf $SRC_DIR/resources/hostapd.24ghz.conf $HOSTAPD_CONF
+fi
+
+if [ "$HOTSPOT_BAND" = "5" ] ; then
+    logger "Hotspot using 5ghz band"
+    sudo ln -sf $SRC_DIR/resources/hostapd.5ghz.conf $HOSTAPD_CONF
+fi
+
 if [ "$DONKEY_RESET" = true ] ; then
     HWADDR=$(ip link show wlan0 | awk 'NR==2{print $2}'  | sed 's/://g' | cut -c 7- )
     echo $HWADDR
