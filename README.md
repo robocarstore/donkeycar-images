@@ -75,14 +75,16 @@ hotspot when there is no wireless connection.
 ### Hotspot issue
 
 - If you are experiencing unstable connection to the hotspot, modify the `country_code` under `/etc/hostapd/hostapd.conf`
-- If you want to use 2.4Ghz instead of 5Ghz hotspot, run the following
+- You can also change the channel of the wifi hotspot. Check `channels` in `/etc/hostapd/hostapd.conf`. Check possible channels here
+  https://en.wikipedia.org/wiki/List_of_WLAN_channels#5_GHz_(802.11a/h/j/n/ac/ax)
+
+- If you want to use 2.4Ghz instead of 5Ghz hotspot, edit `/opt/donkeycar-images/resources/donkey.cfg` and update the following line to:
 
 ```
-cd /opt/donkeycar-images
-sudo ./switch_to_24ghz_hotspot.sh
+HOTSPOT_BAND="2.4"
 ```
 
-Similarly, there is another script called `switch_to_5ghz_hotspot.sh` that you can use to switch to 5ghz network.
+There are two scripts called `switch_to_24ghz_hotspot.sh` and `switch_to_5ghz_hotspot.sh` that you can use to switch between bands.
 
 ## Jupyter Lab
 
