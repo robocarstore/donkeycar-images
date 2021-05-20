@@ -3,7 +3,7 @@ SRC_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 CONFIG_FILE="$SRC_DIR/resources/donkey.cfg"
 HOSTAPD_CONF="/etc/hostapd/hostapd.conf"
-
+HWADDR=$(ip link show wlan0 | awk 'NR==2{print $2}'  | sed 's/://g' | cut -c 7- )
 
 echo $CONFIG_FILE
 . $CONFIG_FILE
@@ -18,10 +18,10 @@ if [ "$HOTSPOT_BAND" = "5" ] ; then
     sudo ln -sf $SRC_DIR/resources/hostapd.5ghz.conf $HOSTAPD_CONF
 fi
 
+# Update ssid name based on hardware address
+sed -i "s/ssid=donkey.*/ssid=donkey-$HWADDR/g" $HOSTAPD_CONF
+
 if [ "$DONKEY_RESET" = true ] ; then
-    HWADDR=$(ip link show wlan0 | awk 'NR==2{print $2}'  | sed 's/://g' | cut -c 7- )
-    echo $HWADDR
-    sed -i "s/ssid=donkey.*/ssid=donkey-$HWADDR/g" $HOSTAPD_CONF
     sed -i  "s/127.0.1.1.*/127.0.1.1\tdonkey-$HWADDR/g" /etc/hosts
     echo "donkey-$HWADDR" > /etc/hostname
 
