@@ -87,6 +87,13 @@ HOTSPOT_BAND="2.4"
 
 There are two scripts called `switch_to_24ghz_hotspot.sh` and `switch_to_5ghz_hotspot.sh` that you can use to switch between bands.
 
+How do I check if my hotspot is running 2.4Ghz?
+Use this command if you are running on a linux or mac
+
+```
+sudo iwlist wlan0  scan
+```
+
 ## Jupyter Lab
 
 ### Installation step
@@ -155,9 +162,11 @@ If you intend to use this project for making money, you must obtain our consent 
 
 ## RPI4B
 
-### v20210501
+### v20210520
 
-- Fix Jupyter Lab missing installation
+- Fixed Jupyter Lab missing installation
+- Added hotspot band parameter in `donkey.cfg`
+- Automatic rename ssid based on hardware address on every reboot
 
 ### v20210204
 
