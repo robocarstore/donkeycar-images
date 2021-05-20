@@ -16,6 +16,7 @@
 
 | Date       | Platform                 | Donkeycar version | Download                                                                          |
 | ---------- | ------------------------ | ----------------- | --------------------------------------------------------------------------------- |
+| 2021-05-20 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/1y6577dina8h1am/pi4_dcv4_v20210520.zip?dl=0) |
 | 2021-02-04 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/i9ro2vhmq55fmnt/pi4_dcv4_v20210204.zip?dl=0) |
 | 2020-10-14 | Raspberry Pi 4B / Buster | v3                | [Download](https://www.dropbox.com/s/1v3gx2atjbg96fs/pi4_v20201014.zip?dl=0)      |
 | 2020-07-18 | Raspberry Pi 4B / Buster | v3                | [Download](https://www.dropbox.com/s/tl9795vp2ywzonr/pi4_v20200718.zip?dl=0)      |
