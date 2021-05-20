@@ -6,8 +6,6 @@ source $SRC_DIR/network-functions.sh
 
 hotspot_down
 
-rm /etc/hostapd/hostapd.conf
-
-ln -s /opt/donkeycar-images/resources/hostapd.5ghz.conf ../../etc/hostapd/hostapd.conf
+ln -sf /opt/donkeycar-images/resources/hostapd.5ghz.conf /etc/hostapd/hostapd.conf
 
 hotspot_up
