@@ -147,13 +147,15 @@ The reset script will reset the current system to a clean state.
 
 3. Jupyter lab should be accessible via `http://<ip>:8888/`
 
-4. Mobile app should be able to finish one whole cycle of setup
+4. Donkey car console should be running. Check `http://<ip>:8000/vehicle/status`
 
-5. Calibration should work
+5. Mobile app should be able to finish one whole cycle of setup
 
-6. Drive UI should work
+6. Calibration should work
 
-7. Training should work
+7. Drive UI should work
+
+8. Training should work
 
 # Others
 
