@@ -79,7 +79,7 @@ hotspot when there is no wireless connection.
 - You can also change the channel of the wifi hotspot. Check `channels` in `/etc/hostapd/hostapd.conf`. Check possible channels here
   https://en.wikipedia.org/wiki/List_of_WLAN_channels#5_GHz_(802.11a/h/j/n/ac/ax)
 
-- If you want to use 2.4Ghz instead of 5Ghz hotspot, edit `/opt/donkeycar-images/resources/donkey.cfg` and update the following line to:
+- If you want to use 2.4Ghz instead of 5Ghz hotspot, edit `/boot/donkey.cfg` and update the following line to:
 
 ```
 HOTSPOT_BAND="2.4"
@@ -161,6 +161,11 @@ If you intend to use this project for making money, you must obtain our consent 
 # Changelog
 
 ## RPI4B
+
+### 20210521
+
+- Added ping vehicle status to avoid slow first time loading of vehicle status page
+- Added /boot/donkey.cfg to allow Windows based machine to edit this file to update configuration
 
 ### v20210520
 

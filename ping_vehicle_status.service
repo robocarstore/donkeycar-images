@@ -1,0 +1,13 @@
+[Unit]
+Description=Ping Vehicle Status
+After=gunicorn.service
+
+[Service]
+ExecStart=/bin/bash ping_vehicle_status.sh
+WorkingDirectory=/opt/donkeycar-images
+StandardOutput=inherit
+StandardError=inherit
+User=root
+
+[Install]
+WantedBy=multi-user.target

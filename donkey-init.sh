@@ -1,12 +1,18 @@
 #!/bin/bash
+
+
 SRC_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
 CONFIG_FILE="$SRC_DIR/resources/donkey.cfg"
-HOSTAPD_CONF="/etc/hostapd/hostapd.conf"
-HWADDR=$(ip link show wlan0 | awk 'NR==2{print $2}'  | sed 's/://g' | cut -c 7- )
+BOOT_CONFIG_FILE="/boot/donkey.cfg"
 
 echo $CONFIG_FILE
 . $CONFIG_FILE
+. $BOOT_CONFIG_FILE
+
+HOSTAPD_CONF="/etc/hostapd/hostapd.conf"
+HWADDR=$(ip link show wlan0 | awk 'NR==2{print $2}'  | sed 's/://g' | cut -c 7- )
+
 
 if [ "$HOTSPOT_BAND" = "2.4" ] ; then
     logger "Hotspot using 2.4ghz band"

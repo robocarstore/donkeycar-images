@@ -89,6 +89,9 @@ git remote set-url origin https://github.com/robocarstore/donkeycar-console
 #  git config --global filter.lfs.smudge "git-lfs smudge --skip -- %f"
 #  git config --global filter.lfs.process "git-lfs filter-process --skip"
 
+git config --global user.email "support@robocarstore.com"
+git config --global user.name "Robocar Store"
+
 git checkout .
 git pull
 rm -rf $CONSOLE_DIR/dkconsole/mycar_test
