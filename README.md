@@ -136,6 +136,25 @@ The reset script will reset the current system to a clean state.
 /opt/donkey-images/pre-release-v4.sh
 ```
 
+# Testing
+
+## Checklist
+
+1. Hostname should be renamed to donkey-xxxxxx where xxxxxx is the last 6 character of the wlan0 hardware address
+   Use `ifconfig` to check wlan0 hardware address
+
+2. 2.4 or 5ghz band should be configurable using `/boot/donkey.cfg`
+
+3. Jupyter lab should be accessible via `http://<ip>:8888/`
+
+4. Mobile app should be able to finish one whole cycle of setup
+
+5. Calibration should work
+
+6. Drive UI should work
+
+7. Training should work
+
 # Others
 
 ## Software Info
