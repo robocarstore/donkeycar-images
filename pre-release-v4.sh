@@ -8,7 +8,7 @@ fi
 # Timestamp this image
 today=$(date +"%Y%m%d")
 sudo sed -i "s/Version: .*/Version: $today/g" /etc/motd
-echo $today > /boot/version
+sudo echo $today > /boot/version
 
 SRC_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 CONFIG_FILE="$SRC_DIR/resources/donkey.cfg"
