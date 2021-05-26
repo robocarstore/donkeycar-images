@@ -183,6 +183,12 @@ If you intend to use this project for making money, you must obtain our consent 
 
 ## RPI4B
 
+### 20210526
+
+- image version now written to /boot/version
+- add two router config to wpa_supplicant.test.conf
+- default hotspot band to 5Ghz
+
 ### 20210521
 
 - Added ping vehicle status to avoid slow first time loading of vehicle status page
