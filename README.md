@@ -13,15 +13,16 @@
 - Jupyter Lab
 
 ## Download
-
 | Date       | Platform                 | Donkeycar version | Download                                                                                |
 | ---------- | ------------------------ | ----------------- | --------------------------------------------------------------------------------------- |
 | 2021-07-12 | Jetson Nano              | v4                | [Download](https://www.dropbox.com/s/zro10hfpzp8uc9l/jetson_nano_4gb_20210712.zip?dl=0) |
+| 2021-05-27 | Raspberry Pi 4B / Buster | v4                | [Download](https://drive.google.com/uc?export=download&confirm=5eLQ&id=19hYKLFnuD7l0YiKEilakvZvX3BYVRta3) |
 | 2021-05-26 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/i4ex5v0y9c5n0t4/pi4_dcv4_v20210526.zip?dl=0)       |
 | 2021-05-20 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/1y6577dina8h1am/pi4_dcv4_v20210520.zip?dl=0)       |
 | 2021-02-04 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/i9ro2vhmq55fmnt/pi4_dcv4_v20210204.zip?dl=0)       |
 | 2020-10-14 | Raspberry Pi 4B / Buster | v3                | [Download](https://www.dropbox.com/s/1v3gx2atjbg96fs/pi4_v20201014.zip?dl=0)            |
 | 2020-07-18 | Raspberry Pi 4B / Buster | v3                | [Download](https://www.dropbox.com/s/tl9795vp2ywzonr/pi4_v20200718.zip?dl=0)            |
+
 
 ## Access
 
@@ -190,6 +191,10 @@ If you intend to use this project for making money, you must obtain our consent 
 - Installed [donkey gym](https://github.com/tawnkramer/gym-donkeycar) by default
 - Installed Tensorflow 2.5
 - Upgraded to donkey 4.3
+
+### 20210526
+
+- Updated /opt/donkeycar-console to the newest version (commit 01adc2ca841f5d1c17332d22e02bf260dbb1d9f4)
 
 ### 20210526
 
