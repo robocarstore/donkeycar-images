@@ -59,6 +59,10 @@ git fetch
 git checkout robocarstore_v4
 git pull
 
+# install luma.oled for oled display
+sudo apt-get -y install fonts-dejavu
+pip install luma.oled
+(crontab -l 2>/dev/null; echo "* * * * * /home/pi/env/bin/python /opt/donkeycar-images/oled-hostname-ip.py") | crontab -
 
 # install TF2.5
 TF_BIN_NAME=tensorflow-2.5.0-cp37-none-linux_armv7l

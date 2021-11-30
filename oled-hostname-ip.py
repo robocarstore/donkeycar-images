@@ -1,12 +1,20 @@
 from luma.core.interface.serial import i2c
 from luma.core.render import canvas
-from luma.oled.device import sh1106
+from luma.oled.device import sh1106, ssd1306
 from PIL import ImageFont
 import netifaces
 import socket
 import time
 import subprocess
 import re
+
+
+'''
+Install this script by executing the following
+
+(sudo crontab -l 2>/dev/null; echo "* * * * * /opt/donkeycar-images/oled-hostname-ip.py") | sudo crontab -
+
+'''
 
 wlan = "wlan0"
 
@@ -68,12 +76,12 @@ def text():
 
 
 serial = i2c(port=1, address=0x3C)
-device = sh1106(serial, persist=True)
+device = ssd1306(serial, rotate=0, height=32, persist=True)
 device.cleanup = None
 
+# requires sudo apt-get install fonts-dejavu
 font = ImageFont.truetype(
     '/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', 8)
 
 with canvas(device) as draw:
-    draw.rectangle(device.bounding_box, outline="white", fill="black")
     draw.text((0, 0), text(), fill="white", font=font)
