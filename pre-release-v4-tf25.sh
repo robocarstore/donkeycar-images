@@ -34,10 +34,10 @@ else
 fi
 
 
-# Delete mycar and donkeycar
+# Delete mycar, donkeycar and legacy folders
 rm -rf $HOME/mycar
 rm -rf $HOME/env_dc
-
+rm -rf /opt/vc
 
 # Create venv
 cd $HOME
@@ -47,8 +47,6 @@ cd $HOME
 # sudo rm -rf $HOME/env
 # python3 -m virtualenv -p python3 env --system-site-packages
 # source env/bin/activate
-
-
 
 # Clone donkeycar from robocarstore repo
 # git clone https://github.com/robocarstore/donkeycar --branch robocar_dev $HOME/donkeycar
@@ -79,6 +77,13 @@ pip install ${TF_BIN_NAME}.whl
 rm ${TF_BIN_NAME}.whl
 
 
+# Install PiGPIO
+# https://gist.github.com/tstellanova/8b1fb350a148eace6541b5fbd2c021ca
+sudo apt-get -y install pigpio python3-pigpio
+sudo systemctl enable pigpiod
+sudo systemctl start pigpiod
+
+
 pip install -e $HOME/donkeycar[pi]
 pip install -e $HOME/donkeycar[mm1]
 
@@ -91,7 +96,6 @@ pip install -e $HOME/donkeycar[mm1]
 
 # Rebuild my car
 donkey createcar --path $HOME/mycar --template complete
-
 
 # Install donkey gym
 cd $HOME
