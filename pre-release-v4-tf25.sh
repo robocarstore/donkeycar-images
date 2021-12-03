@@ -37,7 +37,6 @@ fi
 # Delete mycar, donkeycar and legacy folders
 rm -rf $HOME/mycar
 rm -rf $HOME/env_dc
-rm -rf /opt/vc
 
 # Create venv
 cd $HOME
@@ -60,22 +59,31 @@ git pull
 # install luma.oled for oled display
 sudo apt-get -y install fonts-dejavu
 pip install luma.oled
-(crontab -l 2>/dev/null; echo "* * * * * /home/pi/env/bin/python /opt/donkeycar-images/oled-hostname-ip.py") | crontab -
+
+if ! crontab -l | grep -q 'oled'; then
+    echo "Adding oled cron job"
+    (crontab -l 2>/dev/null; echo "* * * * * /home/pi/env/bin/python /opt/donkeycar-images/oled-hostname-ip.py") | crontab -
+fi
 
 # install TF2.5
-TF_BIN_NAME=tensorflow-2.5.0-cp37-none-linux_armv7l
-SCRIPT_NAME=${TF_BIN_NAME}_numpy1195_download.sh
 
-# wget "https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/master/tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh"
-wget "https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/master/$SCRIPT_NAME"
+if ! pip list | grep tensorflow | grep 2.5.0; then
+    echo "Tensorflow 2.5.0 not installed! Downloading and installing now"
+    TF_BIN_NAME=tensorflow-2.5.0-cp37-none-linux_armv7l
+    SCRIPT_NAME=${TF_BIN_NAME}_numpy1195_download.sh
 
-chmod u+x $SCRIPT_NAME
-./$SCRIPT_NAME
-rm SCRIPT_NAME
+    # wget "https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/master/tensorflow-2.3.1-cp37-none-linux_armv7l_download.sh"
+    wget "https://raw.githubusercontent.com/PINTO0309/Tensorflow-bin/master/$SCRIPT_NAME"
 
-pip install ${TF_BIN_NAME}.whl
-rm ${TF_BIN_NAME}.whl
+    chmod u+x $SCRIPT_NAME
+    ./$SCRIPT_NAME
+    rm SCRIPT_NAME
 
+    pip install ${TF_BIN_NAME}.whl
+    rm ${TF_BIN_NAME}.whl
+
+    echo "Tensorflow installation completed."
+fi
 
 # Install PiGPIO
 # https://gist.github.com/tstellanova/8b1fb350a148eace6541b5fbd2c021ca
@@ -99,6 +107,7 @@ donkey createcar --path $HOME/mycar --template complete
 
 # Install donkey gym
 cd $HOME
+rm -rf gym-donkeycar
 git clone https://github.com/tawnkramer/gym-donkeycar
 cd gym-donkeycar
 pip install -e .[gym-donkeycar]
