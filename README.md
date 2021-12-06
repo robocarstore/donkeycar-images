@@ -15,6 +15,7 @@
 ## Download
 | Date       | Platform                 | Donkeycar version | Download                                                                                |
 | ---------- | ------------------------ | ----------------- | --------------------------------------------------------------------------------------- |
+| 2021-12-03 | Raspberry Pi 4B / Buster | v4                | [Download](????) |
 | 2021-07-12 | Jetson Nano              | v4                | [Download](https://www.dropbox.com/s/zro10hfpzp8uc9l/jetson_nano_4gb_20210712.zip?dl=0) |
 | 2021-05-27 | Raspberry Pi 4B / Buster | v4                | [Download](https://drive.google.com/uc?export=download&confirm=5eLQ&id=19hYKLFnuD7l0YiKEilakvZvX3BYVRta3) |
 | 2021-05-26 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/i4ex5v0y9c5n0t4/pi4_dcv4_v20210526.zip?dl=0)       |
@@ -185,6 +186,15 @@ If you intend to use this project for making money, you must obtain our consent 
 # Changelog
 
 ## RPI4B
+
+### 20211206
+
+- Support Donkey HAT
+- Added `oled-hostname-ip.py`
+- Enable OLED part by default
+- Switched to TF2.5 
+- Removed low battery auto shutdown cron job
+- Installed keras-vis, moviepy and scikit-image to support tub movie generation
 
 ### 20210713
 

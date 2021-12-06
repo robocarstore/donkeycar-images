@@ -112,6 +112,11 @@ git clone https://github.com/tawnkramer/gym-donkeycar
 cd gym-donkeycar
 pip install -e .[gym-donkeycar]
 
+
+# Install moviepy and scikit-image for movie generation
+pip install scikit-image==0.16.2
+pip install moviepy==1.0.3
+
 # Update console
 cd $CONSOLE_DIR
 git remote set-url origin https://github.com/robocarstore/donkeycar-console

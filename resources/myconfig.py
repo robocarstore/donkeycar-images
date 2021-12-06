@@ -23,3 +23,5 @@ if (CONTROLLER_TYPE == 'F710'):
 
 AUTO_CREATE_NEW_TUB = True
 MAX_EPOCHS = 30
+
+USE_SSD1306_128_32 = True  # Enable the SSD_1306 OLED Display
