@@ -187,7 +187,7 @@ If you intend to use this project for making money, you must obtain our consent 
 
 ## RPI4B
 
-### 20211206
+### 20211207
 
 - Support Donkey HAT
 - Added `oled-hostname-ip.py`
@@ -195,6 +195,9 @@ If you intend to use this project for making money, you must obtain our consent 
 - Switched to TF2.5 
 - Removed low battery auto shutdown cron job
 - Installed keras-vis, moviepy and scikit-image to support tub movie generation
+- pre-installed edge tpu dependencies
+- Tuned pigpio to 10microsecond sampling rate (https://forum.radxa.com/t/pigpiod-eating-7-cpu-nonstop/3911)
+
 
 ### 20210713
 

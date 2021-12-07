@@ -117,6 +117,17 @@ pip install -e .[gym-donkeycar]
 pip install scikit-image==0.16.2
 pip install moviepy==1.0.3
 
+
+# Add coral tpu support
+echo "deb https://packages.cloud.google.com/apt coral-edgetpu-stable main" | sudo tee /etc/apt/sources.list.d/coral-edgetpu.list
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+sudo apt-get update
+sudo apt-get -y install python3-edgetpu
+
+cd ~/env/lib/python3.7/site-packages
+ln -sf /usr/lib/python3/dist-packages/edgetpu .
+ln -sf /usr/lib/python3/dist-packages/edgetpu-2.15.0.egg-info .
+
 # Update console
 cd $CONSOLE_DIR
 git remote set-url origin https://github.com/robocarstore/donkeycar-console
