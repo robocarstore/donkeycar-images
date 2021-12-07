@@ -5,7 +5,7 @@ MM1_STOPPED_PWM = 1500
 MM1_SHOW_STEERING_VALUE = False
 MM1_SERIAL_PORT = '/dev/ttyS0'
 
-THROTTLE_FORWARD_PWM = 430  # pwm value for max forward throttle
+THROTTLE_FORWARD_PWM = 410  # pwm value for max forward throttle
 THROTTLE_STOPPED_PWM = 370  # pwm value for no movement
 THROTTLE_REVERSE_PWM = 320  # pwm value for max reverse throttle
 
