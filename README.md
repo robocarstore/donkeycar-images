@@ -29,8 +29,13 @@
 
 ### SSH Login
 
+#### Pi
 - username: pi
 - password: raspberry
+
+#### Nano
+- username: nano
+- password: asdfasdf
 
 ### Jupyter Lab
 
