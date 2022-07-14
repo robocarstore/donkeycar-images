@@ -15,6 +15,7 @@
 ## Download
 | Date       | Platform                 | Donkeycar version | Download                                                                                |
 | ---------- | ------------------------ | ----------------- | --------------------------------------------------------------------------------------- |
+| 2021-06-02 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/y25rhwcjmxsqnlu/pi4_dcv4_v20220602.zip?dl=0)       |
 | 2021-12-07 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/kytoot81l09iqnh/pi4_dcv4_v20211207.zip?dl=0)       |
 | 2021-07-12 | Jetson Nano              | v4                | [Download](https://www.dropbox.com/s/zro10hfpzp8uc9l/jetson_nano_4gb_20210712.zip?dl=0) |
 | 2021-05-27 | Raspberry Pi 4B / Buster | v4                | [Download](https://drive.google.com/uc?export=download&confirm=5eLQ&id=19hYKLFnuD7l0YiKEilakvZvX3BYVRta3) |
@@ -191,6 +192,10 @@ If you intend to use this project for making money, you must obtain our consent 
 # Changelog
 
 ## RPI4B
+
+### 20220602
+
+- Disable donkey car LED part
 
 ### 20211207
 
