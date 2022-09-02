@@ -114,6 +114,12 @@ pip install jupyterlab
 sudo systemctl enable jupyter-lab.service
 ```
 
+## Initial Pi Setup
+
+- Enable SSH
+- Enable Camera
+- Enable I2C
+
 ### Startup Config
 
 /etc/systemd/system/jupyter-lab.service
