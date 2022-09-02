@@ -1,0 +1,13 @@
+[Unit]
+Description = OLED
+After = network.target
+
+[Service]
+User = pi
+Group = pi
+WorkingDirectory = /opt/donkeycar-images
+ExecStart = /home/pi/env/bin/python oled-hostname-ip.py
+SyslogIdentifier= oled
+
+[Install]
+WantedBy = multi-user.target

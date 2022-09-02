@@ -1,0 +1,14 @@
+[Unit]
+Description = JupyterLab
+
+[Service]
+PIDFile = /run/jupyter.pid
+ExecStart = /home/pi/env/bin/jupyter-lab
+User = pi
+Group = pi
+WorkingDirectory = /home/pi
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy = multi-user.target

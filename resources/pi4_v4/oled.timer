@@ -1,0 +1,12 @@
+# This timer unit is for trigger the restart minecraft server
+#
+
+[Unit]
+Description=Refresh the oled every 15 seconds
+
+[Timer]
+Unit=oled.service
+OnCalendar=*-*-* *:*:00,15,30,45
+
+[Install]
+WantedBy=timers.target
