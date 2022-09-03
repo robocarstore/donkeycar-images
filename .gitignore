@@ -1,3 +1,4 @@
 pub
 dist
 **/.ipynb_checkpoints
+resources/pi4_v4/jupyter_config/lab/workspaces
