@@ -8,11 +8,8 @@ CONFIG_FILE="$SRC_DIR/resources/donkey.cfg"
 echo $CONFIG_FILE
 . $CONFIG_FILE
 
-echo "WTF"
-
 # HOSTAPD_CONF="/etc/hostapd/hostapd.conf"
 HWADDR=$(ip link show wlan0 | awk 'NR==2{print $2}'  | sed 's/://g' | cut -c 7- )
-
 
 # if [ "$HOTSPOT_BAND" = "2.4" ] ; then
 #     logger "Hotspot using 2.4ghz band"
@@ -28,7 +25,6 @@ HWADDR=$(ip link show wlan0 | awk 'NR==2{print $2}'  | sed 's/://g' | cut -c 7- 
 # sed -i "s/ssid=donkey.*/ssid=donkey-$HWADDR/g" $HOSTAPD_CONF
 
 if [ "$DONKEY_INIT" = true ] ; then
-    echo "donkey reset is true" >> /opt/donkeycar-images/log
     sed -i  "s/127.0.1.1.*/127.0.1.1\tdonkey-$HWADDR/g" /etc/hosts
     echo "donkey-$HWADDR" > /etc/hostname
 
@@ -41,6 +37,8 @@ if [ "$DONKEY_INIT" = true ] ; then
     sed -i  "s/PASSWORD.*/PASSWORD=$NEW_PASSWORD/g" $CONFIG_FILE
     
     echo "New password is $NEW_PASSWORD"
+    
+    ./changepw.sh -p $NEW_PASSWORD
 
     sudo raspi-config --expand-rootfs
 

@@ -57,8 +57,22 @@ def get_current_ssid():
 def get_hostname():
     return socket.gethostname()
 
-# def get_password():
-    
+def get_password():
+    import configparser
+    with open('resources/donkey.cfg', 'r') as f:
+        config_string = '[donkey_config]\n' + f.read()
+        config = configparser.ConfigParser()
+        config.read_string(config_string)
+        
+        try:
+            password = config['donkey_config']['PASSWORD']
+        except KeyError:
+            password = "No PW"
+
+        # print(config.items('donkey_config'))
+        # config.get('donkey_config', 'PASSWORD')
+        return password
+
 
 
 def network_info():
@@ -91,11 +105,6 @@ while device is None:
 
 device.cleanup = None
 
-def random_password():
-    from random import randint, randrange
-
-    return str(randint(100000, 999999))
-
 # requires sudo apt-get install fonts-dejavu
 font = ImageFont.truetype(
     '/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', 8)
@@ -106,9 +115,10 @@ pwfont = ImageFont.truetype(
 
 
 with canvas(device) as draw:
-    draw.text((20, 6), random_password(), fill="white", font=pwfont)
+    left_offset = int((10 - len(get_password()))/2*10)
+    draw.text((left_offset, 6), get_password(), fill="white", font=pwfont)
 
-time.sleep(1)
+time.sleep(2)
 
 while(True):
     with canvas(device) as draw:
@@ -119,6 +129,6 @@ while(True):
     with canvas(device) as draw:
         draw.text((0, 0), network_info(), fill="white", font=font)
         
-    time.sleep(2)
+    time.sleep(4)
 
     

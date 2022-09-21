@@ -7,6 +7,7 @@ User = pi
 Group = pi
 WorkingDirectory = /opt/donkeycar-images
 ExecStart = /home/pi/env/bin/python oled-hostname-ip.py
+ExecStop = /home/pi/env/bin/python oled-shutdown.py
 SyslogIdentifier= oled
 
 [Install]
