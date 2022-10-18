@@ -44,11 +44,7 @@ git pull
 # install luma.oled for oled display
 sudo apt-get -y install fonts-dejavu
 pip install luma.oled
-
-if ! crontab -l | grep -q 'oled'; then
-    echo "Adding oled cron job"
-    (crontab -l 2>/dev/null; echo "* * * * * /home/pi/env/bin/python /opt/donkeycar-images/oled-hostname-ip.py") | crontab -
-fi
+sudo ln -sf /opt/donkeycar-images/resources/oled.service /etc/systemd/system/oled.service
 
 # install TF2.5
 
@@ -129,6 +125,6 @@ sudo ln -sf $SRC_DIR/resources/gunicorn.service /etc/systemd/system/gunicorn.ser
 sudo systemctl daemon-reload
 sudo systemctl enable gunicorn.service
 
-sed -i  "s/DONKEY_RESET.*/DONKEY_RESET=true/g" $CONFIG_FILE
+sed -i  "s/DONKEY_INIT.*/DONKEY_INIT=true/g" $CONFIG_FILE
 
 echo "Success. You can poweroff and make an image."
