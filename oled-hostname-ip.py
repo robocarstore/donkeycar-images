@@ -12,7 +12,7 @@ import re
 '''
 Install this script by executing the following
 
-(sudo crontab -l 2>/dev/null; echo "* * * * * /opt/donkeycar-images/oled-hostname-ip.py") | sudo crontab -
+sudo ln -sf /opt/donkeycar-images/resources/oled.service /etc/systemd/system/oled.service
 
 '''
 
@@ -57,14 +57,20 @@ def get_current_ssid():
 def get_hostname():
     return socket.gethostname()
 
-def get_password():
+
+def read_config_file():
     import configparser
     with open('resources/donkey.cfg', 'r') as f:
         config_string = '[donkey_config]\n' + f.read()
         config = configparser.ConfigParser()
         config.read_string(config_string)
-        
-        try:
+
+    return config
+
+
+def get_password():
+    config = read_config_file()
+    try:
             password = config['donkey_config']['PASSWORD']
         except KeyError:
             password = "No PW"
@@ -72,8 +78,6 @@ def get_password():
         # print(config.items('donkey_config'))
         # config.get('donkey_config', 'PASSWORD')
         return password
-
-
 
 def network_info():
     result = f"Hostname: {get_hostname()}\n"
@@ -88,8 +92,15 @@ def time_info():
     now = datetime.now()
     current_date = now.strftime("%Y-%m-%d")
     current_time = now.strftime("%H:%M:%S")
+
+    password = get_password()
     result = f"Date: {current_date}\n"
     result += f"Time: {current_time}\n"
+
+    config = read_config_file()
+    print(config['donkey_config']['CYCLE_DISPLAY_PASSWORD'])
+    if (config['donkey_config']['CYCLE_DISPLAY_PASSWORD']).lower() == "true":
+        result += f"PW: {password}\n"
     
     return result
     
