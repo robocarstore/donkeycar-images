@@ -56,7 +56,7 @@ echo $JUPYTER_CONFIG_FILE
 
 
 # Update config file password
-sed -i  "s/PASSWORD.*/PASSWORD=$NEW_PASSWORD/g" $CONFIG_FILE
+sed -i  "s/^PASSWORD.*$/PASSWORD=$NEW_PASSWORD/g" $CONFIG_FILE
 
 # Update system password
 echo "pi:$NEW_PASSWORD" | sudo chpasswd

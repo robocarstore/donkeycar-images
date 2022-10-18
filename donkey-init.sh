@@ -34,8 +34,6 @@ if [ "$DONKEY_INIT" = true ] ; then
     
     NEW_PASSWORD=$(shuf -i 100000-999999 -n 1)
     
-    sed -i  "s/^PASSWORD.*$/PASSWORD=$NEW_PASSWORD/g" $CONFIG_FILE
-    
     echo "New password is $NEW_PASSWORD"
     
     ./changepw.sh -p $NEW_PASSWORD
