@@ -45,7 +45,7 @@ git pull
 # install luma.oled for oled display
 sudo apt-get -y install fonts-dejavu
 pip install luma.oled
-sudo ln -sf /opt/donkeycar-images/resources/oled.service /etc/systemd/system/oled.service
+sudo ln -sf $SRC_DIR/resources/oled.service /etc/systemd/system/oled.service
 
 # install TF2.5
 
@@ -125,6 +125,8 @@ python $CONSOLE_DIR/manage.py migrate
 sudo ln -sf $SRC_DIR/resources/gunicorn.service /etc/systemd/system/gunicorn.service
 sudo systemctl daemon-reload
 sudo systemctl enable gunicorn.service
+
+sudo ln -sf $SRC_DIR/resources/donkey.cfg $HOME/donkey.cfg
 
 sed -i  "s/DONKEY_INIT.*/DONKEY_INIT=true/g" $CONFIG_FILE
 
