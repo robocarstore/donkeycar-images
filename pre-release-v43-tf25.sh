@@ -22,6 +22,7 @@ rm $HOME/.ssh/id_rsa
 # Delete mycar, donkeycar and legacy folders
 rm -rf $HOME/mycar
 rm -rf $HOME/env_dc
+rm -f $HOME/.jupyter/lab/workspaces/*
 
 # Create venv
 cd $HOME
