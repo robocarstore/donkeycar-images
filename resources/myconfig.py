@@ -24,4 +24,8 @@ if (CONTROLLER_TYPE == 'F710'):
 AUTO_CREATE_NEW_TUB = True
 MAX_EPOCHS = 30
 
-USE_SSD1306_128_32 = True  # Enable the SSD_1306 OLED Display
+USE_SSD1306_128_32 = False  # Enable the SSD_1306 OLED Display
+
+# DONKEY_GYM = True
+# DONKEY_SIM_PATH = "remote"
+# SIM_HOST="192.168.1.238"
