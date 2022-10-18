@@ -71,13 +71,13 @@ def read_config_file():
 def get_password():
     config = read_config_file()
     try:
-            password = config['donkey_config']['PASSWORD']
-        except KeyError:
-            password = "No PW"
+        password = config['donkey_config']['PASSWORD']
+    except KeyError:
+        password = "No PW"
 
-        # print(config.items('donkey_config'))
-        # config.get('donkey_config', 'PASSWORD')
-        return password
+    # print(config.items('donkey_config'))
+    # config.get('donkey_config', 'PASSWORD')
+    return password
 
 def network_info():
     result = f"Hostname: {get_hostname()}\n"
