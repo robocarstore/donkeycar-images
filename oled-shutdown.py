@@ -2,11 +2,8 @@ from luma.core.interface.serial import i2c
 from luma.core.render import canvas
 from luma.oled.device import sh1106, ssd1306
 from PIL import ImageFont
-import netifaces
 import socket
 import time
-import subprocess
-import re
 
 
 

@@ -38,7 +38,7 @@ cd $HOME/donkeycar
 git remote set-url origin https://github.com/robocarstore/donkeycar
 git checkout .
 git fetch
-git checkout robocarstore_v4
+git checkout robocarstore_v43
 git pull
 
 # install luma.oled for oled display
@@ -76,9 +76,7 @@ sudo apt-get -y install pigpio python3-pigpio
 sudo systemctl enable pigpiod
 sudo systemctl start pigpiod
 
-
 pip install -e $HOME/donkeycar[pi]
-pip install -e $HOME/donkeycar[mm1]
 
 # Rebuild my car
 donkey createcar --path $HOME/mycar --template complete
