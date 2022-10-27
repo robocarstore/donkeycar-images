@@ -1,21 +1,23 @@
-# Warning
 
-### Use this image at your own risk. This image is designed for the ease of use and therefore sacrifice quite some security concern. For example, it has an unprotected jupyter lab instance running with shell access. In addition, the donkeycar console installed accept any web or mobile client to connect without a password. This may be enhanced in the future but it is what it is now.
 
 ## Features
 
 - Pre-installed Donkey Car Software
 - Support Donkey Car mobile app
 - Supports RPI4B
-- Supports Robohat MM1
-- Built-in wifi hotspot
-- Pre-installed librealsense and pyrealsense2
+- Pre-installed tensorflow 2.5
+- Pre-installed coral library
 - Jupyter Lab
+- Connected SSID, system password is displayed via Donkey HAT OLED
+- ~~Supports Robohat MM1~~
+- ~~Built-in wifi hotspot~~
+
 
 ## Download
 | Date       | Platform                 | Donkeycar version | Download                                                                                |
 | ---------- | ------------------------ | ----------------- | --------------------------------------------------------------------------------------- |
-| 2021-06-02 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/y25rhwcjmxsqnlu/pi4_dcv4_v20220602.zip?dl=0)       |
+| 2022-10-27 | Raspberry Pi 4B / Buster | v4.3.22           | [Download](https://www.dropbox.com/s/jtzgzt4y5mvo7ji/pi4_dcv4_v20221027.zip?dl=0)       |
+| 2022-06-02 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/y25rhwcjmxsqnlu/pi4_dcv4_v20220602.zip?dl=0)       |
 | 2021-12-07 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/kytoot81l09iqnh/pi4_dcv4_v20211207.zip?dl=0)       |
 | 2021-07-12 | Jetson Nano              | v4                | [Download](https://www.dropbox.com/s/zro10hfpzp8uc9l/jetson_nano_4gb_20210712.zip?dl=0) |
 | 2021-05-27 | Raspberry Pi 4B / Buster | v4                | [Download](https://drive.google.com/uc?export=download&confirm=5eLQ&id=19hYKLFnuD7l0YiKEilakvZvX3BYVRta3) |
@@ -26,13 +28,27 @@
 | 2020-07-18 | Raspberry Pi 4B / Buster | v3                | [Download](https://www.dropbox.com/s/tl9795vp2ywzonr/pi4_v20200718.zip?dl=0)            |
 
 
+## Password
+A random 6-digit password is generated during the first boot. This password is used to access
+- Jupyter Lab
+- Mobile App
+- SSH
+
+
+There are two ways to retreive this password:
+1. The password will be displayed through the OLED display of the Donkey HAT
+2. The password is stored in /home/pi/donkey.cfg
+
+To change the password, do not directly edit /home/pi/donkey.cfg. Editing this file directly will result in permanent loss of the shell login if you have not written it down. Use /opt/donkeycar-images/changepw.sh instead. This script will change the password of the raspbian user, jupyter-lab and the mobile app password in one go. 
+
 ## Access
+
 
 ### SSH Login
 
 #### Pi
 - username: pi
-- password: raspberry
+- password: <Refer to password section above>
 
 #### Nano
 - username: nano
@@ -50,58 +66,6 @@ http://donkey-xxxxxx.local:8888
 sudo git clone https://github.com/sctse999/donkeycar-images /opt/donkeycar-images
 sudo ln -s donkey-init.service /etc/systemd/system/donkey-init.service
 
-```
-
-### Add Cron Job
-
-Add the following lines after you execute `sudo crontab -e`
-
-```
-* * * * * /opt/donkeycar-images/switch-network.sh
-* * * * * /home/pi/env/bin/python /opt/donkeycar-images/low-battery-auto-shutdown.py 2>&1 | /usr/bin/logger -t low-battery-protector
-
-```
-
-## Wifi Hotspot
-
-This image is installed with Raspap. To login the Raspap portal, visit
-`http://hostname/` with the following credentials:
-
-- username: admin
-- password: secret
-
-Be default, a 5ghz hotspot is automatically available if there is no active wireless connection.
-The hotspot name is determined by `/etc/hostapd/hostapd.conf`, which is
-updated by a script located in `/usr/local/sbin/donkey-init.sh` upon
-first boot.
-
-This script will use the prefix `donkey-` and the last 6 character of the
-hardware mac address to create the hotspot. You can change this hotspot name to
-something else by editing the file or using the Raspap portal.
-
-The script `switch-network.sh` is a cron job run by root. It turns off the
-hotspot when there is an active wireless connection. Similiarly, it turns on the
-hotspot when there is no wireless connection.
-
-### Hotspot issue
-
-- If you are experiencing unstable connection to the hotspot, modify the `country_code` under `/etc/hostapd/hostapd.conf`
-- You can also change the channel of the wifi hotspot. Check `channels` in `/etc/hostapd/hostapd.conf`. Check possible channels here
-  https://en.wikipedia.org/wiki/List_of_WLAN_channels#5_GHz_(802.11a/h/j/n/ac/ax)
-
-- If you want to use 2.4Ghz instead of 5Ghz hotspot, edit `/boot/donkey.cfg` and update the following line to:
-
-```
-HOTSPOT_BAND="2.4"
-```
-
-There are two scripts called `switch_to_24ghz_hotspot.sh` and `switch_to_5ghz_hotspot.sh` that you can use to switch between bands.
-
-How do I check if my hotspot is running 2.4Ghz?
-Use this command if you are running on a linux or mac
-
-```
-sudo iwlist wlan0  scan
 ```
 
 ## Jupyter Lab
@@ -146,9 +110,8 @@ WantedBy = multi-user.target
 The reset script will reset the current system to a clean state.
 
 ```
-# Run either one of the following command
+# Run the following command
 
-/opt/donkey-images/pre-release-v3.sh
 /opt/donkey-images/pre-release-v4.sh
 ```
 
@@ -159,7 +122,7 @@ The reset script will reset the current system to a clean state.
 1. Hostname should be renamed to donkey-xxxxxx where xxxxxx is the last 6 character of the wlan0 hardware address
    Use `ifconfig` to check wlan0 hardware address
 
-2. 2.4 or 5ghz band should be configurable using `/boot/donkey.cfg`
+2. ~~2.4 or 5ghz band should be configurable using `/boot/donkey.cfg`~~
 
 3. Jupyter lab should be accessible via `http://<ip>:8888/`
 
@@ -198,6 +161,12 @@ If you intend to use this project for making money, you must obtain our consent 
 # Changelog
 
 ## RPI4B
+
+### 20221027
+- Random 6-digit system password
+- System password is displayed via Donkey HAT OLED display
+- Jupyter lab is password protected
+- Installed with donkey car v4.3.22
 
 ### 20220602
 
