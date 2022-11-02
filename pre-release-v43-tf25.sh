@@ -122,7 +122,7 @@ pip install -r $CONSOLE_DIR/requirements/production.txt
 
 python $CONSOLE_DIR/manage.py migrate
 
-sudo ln -sf $SRC_DIR/resources/gunicorn.service /etc/systemd/system/gunicorn.service
+sudo ln -sf $CONSOLE_DIR/gunicorn.service /etc/systemd/system/gunicorn.service
 sudo systemctl daemon-reload
 sudo systemctl enable gunicorn.service
 
