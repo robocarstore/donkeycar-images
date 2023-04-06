@@ -94,8 +94,7 @@ def time_info():
     current_time = now.strftime("%H:%M:%S")
 
     password = get_password()
-    result = f"Date: {current_date}\n"
-    result += f"Time: {current_time}\n"
+    result = f"Time: {current_time}\n"
 
     config = read_config_file()
     print(config['donkey_config']['CYCLE_DISPLAY_PASSWORD'])
@@ -117,10 +116,12 @@ while device is None:
 device.cleanup = None
 
 # requires sudo apt-get install fonts-dejavu
-font = ImageFont.truetype(
+small_font = ImageFont.truetype(
     '/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', 8)
 
-# pwfont = ImageFont.truetype(font=None, size=10, index=0, encoding=”) 
+big_font = ImageFont.truetype(
+    '/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', 12)
+
 pwfont = ImageFont.truetype(
     '/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf', 24)
 
@@ -133,12 +134,12 @@ time.sleep(2)
 
 while(True):
     with canvas(device) as draw:
-        draw.text((0, 0), time_info(), fill="white", font=font)
+        draw.text((0, 0), time_info(), fill="white", font=big_font)
         
     time.sleep(2)
     
     with canvas(device) as draw:
-        draw.text((0, 0), network_info(), fill="white", font=font)
+        draw.text((0, 0), network_info(), fill="white", font=small_font)
         
     time.sleep(4)
 

@@ -29,3 +29,6 @@ USE_SSD1306_128_32 = False  # Enable the SSD_1306 OLED Display
 # DONKEY_GYM = True
 # DONKEY_SIM_PATH = "remote"
 # SIM_HOST="192.168.1.238"
+
+CAMERA_VFLIP = True
+CAMERA_HFLIP = True
