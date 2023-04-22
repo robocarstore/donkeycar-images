@@ -12,11 +12,14 @@
 - ~~Supports Robohat MM1~~
 - ~~Built-in wifi hotspot~~
 
+https://www.dropbox.com/s/emht0vqhbdmxgm8/pi4_dcv4_v20230406.zip?dl=0
+
 
 ## Download
 | Date       | Platform                 | Donkeycar version | Download                                                                                |
 | ---------- | ------------------------ | ----------------- | --------------------------------------------------------------------------------------- |
-| 2022-11-03 | Raspberry Pi 4B / Buster | v4.3.22           | [Download](https://www.dropbox.com/s/0sjue293q6dky1z/pi4_dcv4_v20221103b.zip?dl=0)
+| 2023-04-06 | Raspberry Pi 4B / Buster | v4.3.22           | [Download](https://www.dropbox.com/s/emht0vqhbdmxgm8/pi4_dcv4_v20230406.zip?dl=0)       | 
+| 2022-11-03 | Raspberry Pi 4B / Buster | v4.3.22           | [Download](https://www.dropbox.com/s/0sjue293q6dky1z/pi4_dcv4_v20221103b.zip?dl=0)      |
 | 2022-10-27 | Raspberry Pi 4B / Buster | v4.3.22           | [Download](https://www.dropbox.com/s/jtzgzt4y5mvo7ji/pi4_dcv4_v20221027.zip?dl=0)       |
 | 2022-06-02 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/y25rhwcjmxsqnlu/pi4_dcv4_v20220602.zip?dl=0)       |
 | 2021-12-07 | Raspberry Pi 4B / Buster | v4                | [Download](https://www.dropbox.com/s/kytoot81l09iqnh/pi4_dcv4_v20211207.zip?dl=0)       |
@@ -162,6 +165,11 @@ If you intend to use this project for making money, you must obtain our consent 
 # Changelog
 
 ## RPI4B
+
+
+### 20230406
+- Flip camera by default
+- Fix recording not working issue by updating to the latest. 
 
 ### 20221103
 - Recreate donkeycar app for calibration and copilot support
