@@ -51,3 +51,22 @@ jupyter server password
 # https://forums.raspberrypi.com/viewtopic.php?t=221507
 # this is not working, we don't need this
 # workaround, have the oled.py wait until i2c ready
+
+# for donkey makemovie
+sudo apt-get install ffmpeg
+
+
+sudo apt-get update
+sudo apt-get -y install python3-opencv
+
+pip uninstall -y adafruit-circuitpython-lis3dh adafruit-circuitpython-typing adafruit-circuitpython-register 
+
+pip uninstall -y typing-extensions
+pip install typing-extensions==3.7.4.3 
+pip install numpy==1.20.*
+
+python -c "import numpy; print(numpy.version.version)"
+python -c "import cv2; print(cv2.__version__)"
+
+
+pip install git+https://github.com/sctse999/keras-vis.git
