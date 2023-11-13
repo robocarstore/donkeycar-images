@@ -12,12 +12,12 @@
 - ~~Supports Robohat MM1~~
 - ~~Built-in wifi hotspot~~
 
-https://www.dropbox.com/s/emht0vqhbdmxgm8/pi4_dcv4_v20230406.zip?dl=0
 
 
 ## Download
 | Date       | Platform                 | Donkeycar version | Download                                                                                |
 | ---------- | ------------------------ | ----------------- | --------------------------------------------------------------------------------------- |
+| 2023-11-14 | Raspberry Pi 4B / Bulleye | v5.0-dev3           | [Download](https://www.dropbox.com/scl/fi/kr6xg6hi80nd9he1d7z4z/pi4_dcv5_v20231114.zip?rlkey=oojn8cs86m2l623ph3mu1swfr&dl=0) |
 | 2023-04-06 | Raspberry Pi 4B / Buster | v4.3.22           | [Download](https://www.dropbox.com/s/emht0vqhbdmxgm8/pi4_dcv4_v20230406.zip?dl=0)       | 
 | 2022-11-03 | Raspberry Pi 4B / Buster | v4.3.22           | [Download](https://www.dropbox.com/s/0sjue293q6dky1z/pi4_dcv4_v20221103b.zip?dl=0)      |
 | 2022-10-27 | Raspberry Pi 4B / Buster | v4.3.22           | [Download](https://www.dropbox.com/s/jtzgzt4y5mvo7ji/pi4_dcv4_v20221027.zip?dl=0)       |
