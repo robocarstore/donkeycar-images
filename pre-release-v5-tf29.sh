@@ -49,7 +49,7 @@ sudo ln -sf $SRC_DIR/resources/oled.service /etc/systemd/system/oled.service
 
 # Rebuild my car
 donkey createcar --path $HOME/mycar --template complete
-cp $SRC_DIR/resources/myconfig.py $HOME/mycar/myconfig.py
+cp $SRC_DIR/resources/myconfig_v5.py $HOME/mycar/myconfig.py
 
 # Install moviepy and scikit-image for movie generation
 pip install scikit-image==0.21.0
