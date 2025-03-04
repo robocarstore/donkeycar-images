@@ -17,7 +17,7 @@
 ## Download
 | Date       | Platform                 | Donkeycar version | Download                                                                                |
 | ---------- | ------------------------ | ----------------- | --------------------------------------------------------------------------------------- |
-| 2025-02-28 | Raspberry Pi 4B / Bulleye | v5.0-dev3        | [Download](https://www.dropbox.com/scl/fi/x9oi2x1yf4afqkd2u63st/pi4_dcv5_v20250228.zip?rlkey=pl83xhj7ndjfo8xldrza9s00a&st=ah8ct7yo&dl=0) |
+| 2025-03-03 | Raspberry Pi 4B / Bulleye | v5.0-dev3        | [Download](https://www.dropbox.com/s/98vdoehbdikv54m/pi4_dcv5_v20250303.zip?st=93tkomoh&dl=0) |
 | 2023-11-14 | Raspberry Pi 4B / Bulleye | v5.0-dev3        | [Download](https://www.dropbox.com/scl/fi/kr6xg6hi80nd9he1d7z4z/pi4_dcv5_v20231114.zip?rlkey=oojn8cs86m2l623ph3mu1swfr&dl=0) |
 | 2023-04-06 | Raspberry Pi 4B / Buster | v4.3.22           | [Download](https://www.dropbox.com/s/emht0vqhbdmxgm8/pi4_dcv4_v20230406.zip?dl=0)       | 
 | 2022-11-03 | Raspberry Pi 4B / Buster | v4.3.22           | [Download](https://www.dropbox.com/s/0sjue293q6dky1z/pi4_dcv4_v20221103b.zip?dl=0)      |
@@ -167,9 +167,10 @@ If you intend to use this project for making money, you must obtain our consent 
 
 ## RPI4B
 
-### 20250228
+### 20250303
 - Included [donkeycar-notebook](https://github.com/sctse999/donkeycar-notebook)
 - Installed tabulate via pip
+- Fix donkey car copilot issues
 
 ### 20230406
 - Flip camera by default
